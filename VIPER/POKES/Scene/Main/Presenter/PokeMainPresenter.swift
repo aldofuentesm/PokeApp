@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Combine
 
-final class PokeMainPresenterImplementation: PokeMainPresenter {
+class PokeMainPresenterImplementation {
     fileprivate let view: PokeMainView
     fileprivate let router: PokeMainViewRouter
     fileprivate let interactor: PokeMainInteractor
@@ -18,10 +19,28 @@ final class PokeMainPresenterImplementation: PokeMainPresenter {
         self.router = router
         self.interactor = interactor
     }
-}
-extension PokeMainPresenterImplementation {
-    func viewDidLoad() {
+    
+    func observeNotifications() {
+        
+    }
+    
+    func fetchPokemons() {
         interactor.fetchPokemons()
+    }
+    
+    func map(pokemon: PokemonDTO) -> PokemonViewModel {
+        PokemonViewModel(
+            name: pokemon.name,
+            image: interactor.fetchPokemonImage(url: pokemon.url))
+    }
+}
+
+extension PokeMainPresenterImplementation: PokeMainPresenter {
+    func viewDidLoad() {
+        fetchPokemons()
+        observeNotifications()
+        // Other functions
+        // Fetch other endpoints
     }
     
     func didSelectRowAt(row: Int) {
@@ -29,12 +48,15 @@ extension PokeMainPresenterImplementation {
         router.showPokemonDetail(pokemon: pokemon)
     }
 }
+
 extension PokeMainPresenterImplementation: PokeMainInteractorOut {
     func fetchPokemonsSuccess(pokemons: [PokemonDTO]) {
         self.pokemons = pokemons
-        view.show(pokemons: pokemons)
+        let viewModels = pokemons.map(map(pokemon:))
+        view.show(pokemons: viewModels)
     }
     
-    func failure(message: String) {
+    func failure(error: String) {
+        view.showError(message: "Try later")
     }
 }

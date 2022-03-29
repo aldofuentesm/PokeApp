@@ -15,7 +15,7 @@ class PokemonCell: UITableViewCell {
         // Initialization code
     }
         
-    func configure(name: String) {
-        lblName.text = name
+    func configure(viewModel: PokemonViewModel) {
+        lblName.text = viewModel.name
     }
 }

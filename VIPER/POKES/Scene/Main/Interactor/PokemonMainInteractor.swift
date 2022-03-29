@@ -5,16 +5,14 @@
 //  Created by Omar Hernandez on 18/02/22.
 //
 
+import UIKit
+import Combine
+
 final class PokemonMainInteractorImplementation: PokeMainInteractor {
     private var pokemonUseCase: PokemonUseCase
     private var presenter: PokeMainInteractorOut?
-    init() {
-        // ApiClient
-        let apiClient = ApiClientImplementation()
-        // Gateway
-        let apiGateway = PokemonsApiGatewayImplementation(apiClient: apiClient)
-        // UseCase
-        pokemonUseCase = PokemonUseCaseImplementation(apiGateway: apiGateway)
+    init(pokemonUseCase: PokemonUseCase) {
+        self.pokemonUseCase = pokemonUseCase
     }
     
     func configure(presenter: PokeMainInteractorOut) {
@@ -27,15 +25,19 @@ extension PokemonMainInteractorImplementation {
     func fetchPokemons() {
         pokemonUseCase.fetchPokemons(parameters: Pokemon.Request(limit: "100", offset: "200"))
     }
+    
+    func fetchPokemonImage(url: String) -> AnyPublisher<UIImage?, Never> {
+        return Empty().eraseToAnyPublisher()
+    }
 }
 
 extension PokemonMainInteractorImplementation: PokemonUseCaseOut {
-    func fetchPokemonsResponse(result: ApiResult<pokemonsDTO>) {
+    func fetchPokemonsResponse(result: ApiResult<PokemonsDTO>) {
         switch result {
         case let .success(response):
-            presenter?.fetchPokemonsSuccess(pokemons: response.Pokemons)
+            presenter?.fetchPokemonsSuccess(pokemons: response.pokemons)
         case let .failure(error):
-            presenter?.failure(message: error.message ?? "error")
+            presenter?.failure(error: error.message ?? "error")
         }
     }
     

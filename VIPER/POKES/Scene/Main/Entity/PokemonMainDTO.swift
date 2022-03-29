@@ -7,16 +7,18 @@
 
 import Foundation
 
-struct pokemonsDTO {
-    let Pokemons: [PokemonDTO]
-    init(entity: Pokemon.Response) {
-        Pokemons = entity.results.map({ poke in
+struct PokemonsDTO {
+    let pokemons: [PokemonDTO]
+    init(response: Pokemon.Response) {
+        pokemons = response.results.map({ poke in
             return PokemonDTO(name: poke.name, url: poke.url)
         })
     }
 }
 
-struct PokemonDTO {
+struct PokemonDTO: Equatable {
     let name: String
     let url: String
 }
+
+

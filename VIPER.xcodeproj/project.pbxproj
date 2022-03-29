@@ -39,7 +39,20 @@
 		6D6AADED27B594E300846E18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6AADEC27B594E300846E18 /* ViewController.swift */; };
 		6D6AADF227B594E600846E18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D6AADF127B594E600846E18 /* Assets.xcassets */; };
 		6D6AADF527B594E600846E18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D6AADF327B594E600846E18 /* LaunchScreen.storyboard */; };
+		A0FAC2F727D27A8F00F2AF17 /* VIPERTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FAC2F627D27A8F00F2AF17 /* VIPERTests.swift */; };
+		A0FAC2FE27D27B0F00F2AF17 /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FAC2FD27D27B0F00F2AF17 /* PokemonViewModel.swift */; };
+		A0FAC30027D27B5800F2AF17 /* PokemonsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FAC2FF27D27B5800F2AF17 /* PokemonsResponse.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A0FAC2F827D27A8F00F2AF17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D6AADDD27B594E300846E18 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D6AADE427B594E300846E18;
+			remoteInfo = VIPER;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6D240A2927C8187D00142845 /* PokemonDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailInteractor.swift; sourceTree = "<group>"; };
@@ -76,10 +89,21 @@
 		6D6AADF127B594E600846E18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D6AADF427B594E600846E18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D6AADF627B594E600846E18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0FAC2F427D27A8F00F2AF17 /* VIPERTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VIPERTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0FAC2F627D27A8F00F2AF17 /* VIPERTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPERTests.swift; sourceTree = "<group>"; };
+		A0FAC2FD27D27B0F00F2AF17 /* PokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewModel.swift; sourceTree = "<group>"; };
+		A0FAC2FF27D27B5800F2AF17 /* PokemonsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonsResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6D6AADE227B594E300846E18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0FAC2F127D27A8F00F2AF17 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -294,6 +318,8 @@
 			isa = PBXGroup;
 			children = (
 				6D3195C227BF34CC00C7D2D7 /* PokemonMainDTO.swift */,
+				A0FAC2FF27D27B5800F2AF17 /* PokemonsResponse.swift */,
+				A0FAC2FD27D27B0F00F2AF17 /* PokemonViewModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -319,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				6D6AADE727B594E300846E18 /* VIPER */,
+				A0FAC2F527D27A8F00F2AF17 /* VIPERTests */,
 				6D6AADE627B594E300846E18 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -327,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				6D6AADE527B594E300846E18 /* VIPER.app */,
+				A0FAC2F427D27A8F00F2AF17 /* VIPERTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -343,6 +371,14 @@
 				6D6AADF627B594E600846E18 /* Info.plist */,
 			);
 			path = VIPER;
+			sourceTree = "<group>";
+		};
+		A0FAC2F527D27A8F00F2AF17 /* VIPERTests */ = {
+			isa = PBXGroup;
+			children = (
+				A0FAC2F627D27A8F00F2AF17 /* VIPERTests.swift */,
+			);
+			path = VIPERTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +401,24 @@
 			productReference = 6D6AADE527B594E300846E18 /* VIPER.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A0FAC2F327D27A8F00F2AF17 /* VIPERTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0FAC2FC27D27A8F00F2AF17 /* Build configuration list for PBXNativeTarget "VIPERTests" */;
+			buildPhases = (
+				A0FAC2F027D27A8F00F2AF17 /* Sources */,
+				A0FAC2F127D27A8F00F2AF17 /* Frameworks */,
+				A0FAC2F227D27A8F00F2AF17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0FAC2F927D27A8F00F2AF17 /* PBXTargetDependency */,
+			);
+			name = VIPERTests;
+			productName = VIPERTests;
+			productReference = A0FAC2F427D27A8F00F2AF17 /* VIPERTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -372,11 +426,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					6D6AADE427B594E300846E18 = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					A0FAC2F327D27A8F00F2AF17 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 6D6AADE427B594E300846E18;
 					};
 				};
 			};
@@ -394,6 +452,7 @@
 			projectRoot = "";
 			targets = (
 				6D6AADE427B594E300846E18 /* VIPER */,
+				A0FAC2F327D27A8F00F2AF17 /* VIPERTests */,
 			);
 		};
 /* End PBXProject section */
@@ -408,6 +467,13 @@
 				6D6AADF527B594E600846E18 /* LaunchScreen.storyboard in Resources */,
 				6D6AADF227B594E600846E18 /* Assets.xcassets in Resources */,
 				6D3195D327BF4B5400C7D2D7 /* PokemonDetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0FAC2F227D27A8F00F2AF17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +494,7 @@
 				6D3195C327BF34CC00C7D2D7 /* PokemonMainDTO.swift in Sources */,
 				6D3195E527C06F2E00C7D2D7 /* PokemonMainProtocol.swift in Sources */,
 				6D3195D527BF516C00C7D2D7 /* PokemonDetailEntity.swift in Sources */,
+				A0FAC2FE27D27B0F00F2AF17 /* PokemonViewModel.swift in Sources */,
 				6D3195B627BF27E200C7D2D7 /* ApiClient.swift in Sources */,
 				6D6AADE927B594E300846E18 /* AppDelegate.swift in Sources */,
 				6D3194A427BDE57500C7D2D7 /* PokeMainViewController.swift in Sources */,
@@ -436,6 +503,7 @@
 				6D3195BE27BF2EE300C7D2D7 /* PokemonsApiGateway.swift in Sources */,
 				6D3194A227BDE57500C7D2D7 /* PokeMainViewRouter.swift in Sources */,
 				6D3194AE27BDE64000C7D2D7 /* PokemonsApiRequest.swift in Sources */,
+				A0FAC30027D27B5800F2AF17 /* PokemonsResponse.swift in Sources */,
 				6D3195D027BF4B5400C7D2D7 /* PokemonDetailPresenter.swift in Sources */,
 				6D240A2C27C818CB00142845 /* PokemonDetailProtocol.swift in Sources */,
 				6D3195C127BF347300C7D2D7 /* PokemonUseCase.swift in Sources */,
@@ -448,7 +516,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A0FAC2F027D27A8F00F2AF17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0FAC2F727D27A8F00F2AF17 /* VIPERTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A0FAC2F927D27A8F00F2AF17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6D6AADE427B594E300846E18 /* VIPER */;
+			targetProxy = A0FAC2F827D27A8F00F2AF17 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6D6AADF327B594E600846E18 /* LaunchScreen.storyboard */ = {
@@ -652,6 +736,44 @@
 			};
 			name = Release;
 		};
+		A0FAC2FA27D27A8F00F2AF17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U3X4WD8JVD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aldofuentes.VIPERTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VIPER.app/VIPER";
+			};
+			name = Debug;
+		};
+		A0FAC2FB27D27A8F00F2AF17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U3X4WD8JVD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aldofuentes.VIPERTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VIPER.app/VIPER";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -669,6 +791,15 @@
 			buildConfigurations = (
 				6D6AADFA27B594E600846E18 /* Debug */,
 				6D6AADFB27B594E600846E18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0FAC2FC27D27A8F00F2AF17 /* Build configuration list for PBXNativeTarget "VIPERTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0FAC2FA27D27A8F00F2AF17 /* Debug */,
+				A0FAC2FB27D27A8F00F2AF17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

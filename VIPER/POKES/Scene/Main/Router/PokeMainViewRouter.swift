@@ -11,12 +11,18 @@ final class PokeMainViewRouterImplementation: PokeMainViewRouter {
     var navigationController: UINavigationController!
     
     init() {
+        // ApiClient
+        let apiClient = ApiClientImplementation()
+        // Gateway
+        let apiGateway = PokemonsApiGatewayImplementation(apiClient: apiClient)
+        // UseCase
+        let useCase = PokemonUseCaseImplementation(apiGateway: apiGateway)
+        let interactor = PokemonMainInteractorImplementation(pokemonUseCase: useCase)
         let controller = PokeMainViewController()
-        let interactor = PokemonMainInteractorImplementation()
         let presenter = PokeMainPresenterImplementation(view: controller,
                                                         router: self,
                                                         interactor: interactor)
-        controller.configure(presenter: presenter)
+        controller.configure(responder: presenter)
         interactor.configure(presenter: presenter)
         navigationController = UINavigationController(rootViewController: controller)
     }

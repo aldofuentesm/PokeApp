@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ApiGbmError: Decodable {
+struct ApiGbmError: Decodable, Equatable {
     var eventId: Decimal? = 20
     var code: String? = ""
     var message: String? = ""
@@ -33,7 +33,7 @@ struct ApiGbmError: Decodable {
     }
 }
 
-struct ApiError: Error, Decodable {
+struct ApiError: Error, Decodable, Equatable {
     static fileprivate let messageSplit = 2
     var code: String? = ""
     var eventId: String? = ""

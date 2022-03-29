@@ -17,15 +17,16 @@ final class PokeMainViewController: UIViewController {
     ///////////////////////////////////////
     private var presenter: PokeMainPresenter!
     private var cellReuseIdentifier = "PokemonCell"
-    private var pokemons: [PokemonDTO]?
+    private var pokemons: [PokemonViewModel]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTable()
         presenter.viewDidLoad()
     }
     
-    func configure(presenter: PokeMainPresenter) {
-        self.presenter = presenter
+    func configure(responder: PokeMainPresenter) {
+        self.presenter = responder
     }
     
     private func configureTable() {
@@ -40,12 +41,12 @@ extension PokeMainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard  let dataForRow = pokemons?[indexPath.row].name,
+        guard  let viewModel = pokemons?[indexPath.row],
                let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier,
                                                         for: indexPath) as? PokemonCell else {
                    return UITableViewCell()
                }
-        cell.configure(name: dataForRow)
+        cell.configure(viewModel: viewModel)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -54,8 +55,12 @@ extension PokeMainViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension PokeMainViewController: PokeMainView {
-    func show(pokemons: [PokemonDTO]) {
+    func show(pokemons: [PokemonViewModel]) {
         self.pokemons = pokemons
         tableview.reloadData()
+    }
+    
+    func showError(message: String) {
+        // TODO: Show error alert
     }
 }

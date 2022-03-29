@@ -6,7 +6,7 @@
 //
 
 import Foundation
-typealias getPokemonModelCompletionHandler = (_ result: ApiResult<pokemonsDTO>) -> Void
+typealias getPokemonModelCompletionHandler = (_ result: ApiResult<PokemonsDTO>) -> Void
 typealias getPokemonDetailModelCompletionHandler = (_ result: ApiResult<PokemonDetailDTO>) -> Void
 
 protocol PokemonUseCase {
@@ -16,12 +16,12 @@ protocol PokemonUseCase {
 }
 
 protocol PokemonUseCaseOut: AnyObject {
-    func fetchPokemonsResponse(result: ApiResult<pokemonsDTO>)
+    func fetchPokemonsResponse(result: ApiResult<PokemonsDTO>)
     func fetchPokemonDetailResponse(result: ApiResult<PokemonDetailDTO>)
 }
 
 extension PokemonUseCaseOut {
-    func fetchPokemonsResponse(result: ApiResult<pokemonsDTO>) {}
+    func fetchPokemonsResponse(result: ApiResult<PokemonsDTO>) {}
     func fetchPokemonDetailResponse(result: ApiResult<PokemonDetailDTO>) {}
 }
 
@@ -37,7 +37,7 @@ class PokemonUseCaseImplementation: PokemonUseCase {
         apiGateway.fetchPokemons(parameters: parameters) { [weak self] (result) in
             switch result {
             case let .success(response):
-                let dto = pokemonsDTO(entity: response)
+                let dto = PokemonsDTO(response: response)
                 self?.interactor?.fetchPokemonsResponse(result: .success(dto))
             case let .failure(error):
                 self?.interactor?.fetchPokemonsResponse(result: .failure(error))

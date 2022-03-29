@@ -127,14 +127,12 @@ class ApiClientImplementation: NSObject, ApiClient {
                                  _ error: Error?) {
         var value = ""
         var statusCode = ""
-        var code = Int.zero
         
         if let response = data {
             value = String.init(data: response, encoding: .utf8) ?? ""
         }
         if let httpUrlResponse = response as? HTTPURLResponse {
             statusCode = "\(httpUrlResponse.statusCode)"
-            code = httpUrlResponse.statusCode
         }
         let absoluteString = request.urlRequest?.url?.absoluteString ?? ""
         var requestErrorLog = ""
